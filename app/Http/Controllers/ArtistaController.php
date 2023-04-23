@@ -9,7 +9,8 @@ class ArtistaController extends Controller{
 
     public function index()
     {
-        $response = Http::get('http://localhost:8080/artist/listar');
+        $url = 'http://localhost:8080/artist/listar';
+        $response = Http::get($url);
         if ($response->ok()) {
             print_r($response->json());
         } else{
@@ -19,7 +20,8 @@ class ArtistaController extends Controller{
 
     public function create()
     {
-        $response = Http::post('http://localhost:8080/artist/create',
+        $url = 'http://localhost:8080/artist/create';
+        $response = Http::post($url,
                             [
                                 'nombre' => 'Mon',
                                 'apellido' =>  'Laferte',
@@ -35,7 +37,8 @@ class ArtistaController extends Controller{
 
     public function delete($id)
     {
-        $response = Http::delete('http://localhost:8080/artist/delete/'.$id);
+        $url = 'http://localhost:8080/artist/delete/'.$id;
+        $response = Http::delete($url);
         if ($response->ok()) {
             printf('Se ha eliminado correctamente');
         } else{
@@ -47,7 +50,8 @@ class ArtistaController extends Controller{
 
     public function getByID($id)
     {
-        $response = Http::get('http://localhost:8080/artist/find/'.$id);
+        $url = 'http://localhost:8080/artist/find/'.$id;
+        $response = Http::get($url);
 
         if ($response->ok()) {
             print_r($response->json());
