@@ -22,18 +22,27 @@ class ArtistaController extends Controller{
 
     public function create()
     {
-        return view('nuevoArtista');
+        $url = 'http://localhost:8080/producer/listar';
+        $response = Http::get($url);
+        if ($response->ok()) {
+            $productora =$response->json();
+            return view ('nuevoArtista', compact('productora'));
+        } else{
+            printf('Hubo un error al encontrar los producer');
+        }
     }
 
-    public function save()
+    public function save(Request $request)
     {
+
+
 
         $url = 'http://localhost:8080/artist/create';
         $response = Http::post($url,
                             [
-                                'nombre' => 'Mon',
-                                'apellido' =>  'Laferte',
-                                'anio_debut' =>  '2003 '
+                                'nombre' => $request->nombre,
+                                'apellido' =>  $request->apellido,
+                                'anio_debut' =>  $request->anio_debut
                             ]
     );
         if ($response->getStatusCode() === 201) {
