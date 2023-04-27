@@ -15,7 +15,7 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/cantante.png') }}" alt="">
         <h1>Agregar Nuevo Artista</h1>
-        <a href="artista.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="index"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <form action="" method="POST">
