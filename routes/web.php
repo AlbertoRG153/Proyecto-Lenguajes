@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/artista', function () {
+/* Route::get('/artista', function () {
     return view('artista');
 });
 
@@ -33,7 +33,7 @@ Route::get('/cancion', function () {
 
 Route::get('/genero', function () {
     return view('genero');
-});
+}); */
 
 //Rutas Productora
 Route::get('/producer', [ProductoraController::class, 'index'])->name('producer.index');
