@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ProductoraController;
-use App\Http\Controllers\ProductoraController;
+use App\Http\Controllers\CancionController;
 
 /*
 
@@ -43,11 +43,21 @@ Route::get('/producer/delete/{id}', [ProductoraController::class, 'delete'])->na
 Route::get('/producer/find/{id}', [ProductoraController::class, 'getByID'])->name('producer.find');
 Route::get('/producer/edit/{id}', [ProductoraController::class, 'edit'])->name('producer.edit');
 Route::get('/producer/guardar', [ProductoraController::class, 'save'])->name('producer.guardar');
-//Rutas aRTISTA
+//Rutas Artista
 Route::get('/artist', [ArtistaController::class, 'index'])->name('artist.index');
 Route::get('/artist/create', [ArtistaController::class, 'create'])->name('artist.create');
-Route::get('/artist/edit', [ArtistaController::class, 'edit'])->name('artist.edit');
+Route::get('/artist/edit/{id}', [ArtistaController::class, 'edit'])->name('artist.edit');
 Route::get('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
 Route::get('/artist/delete/{id}', [ArtistaController::class, 'delete'])->name('artist.delete');
 Route::get('/artist/find/{id}', [ArtistaController::class, 'getByID'])->name('artist.find');
 Route::get('/artist/{art}/producer/{prod}', [ArtistaController::class, 'prodToArt'])->name('artist.prodToArt');
+//Rutas Cancion
+Route::get('/song', [CancionController::class, 'index'])->name('song.index');
+Route::get('/song/create', [CancionController::class, 'create'])->name('song.create');
+Route::get('/song/edit/{id}', [CancionController::class, 'edit'])->name('song.edit');
+Route::put('/song/update', [CancionController::class, 'update'])->name('song.update');
+Route::post('/song/save', [CancionController::class, 'save'])->name('song.save');
+Route::get('/song/delete/{id}', [CancionController::class, 'delete'])->name('song.delete');
+Route::get('/song/find/{id}', [CancionController::class, 'getByID'])->name('song.find');
+Route::get('/song/{song}/artist/{art}', [CancionController::class, 'artToSong'])->name('song.artToSong');
+Route::get('/song/{song}/gender/{gend}', [CancionController::class, 'genderToSong'])->name('song.genderToSong');

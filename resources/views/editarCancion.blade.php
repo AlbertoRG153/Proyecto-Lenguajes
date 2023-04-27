@@ -9,32 +9,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script>
+    function confirmDelete() {
+        var result = confirm("¿Estás seguro de editar este elemento?");
+        if (result) {
+        // Si se presiona Sí, continuar con la eliminación
+        return true;
+        } else {
+        // Si se presiona No, cancelar la eliminación
+        return false;
+        }
+    }
+    </script>
 </head>
 
 <body>
     <nav class="nav centrar">
         <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
         <h1>Editar Cancion</h1>
-        <a href="cancion.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('song.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
-
-    <form action="" method="POST">
+    <form action="{{ route('song.update') }}" method="POST">
+        
         @csrf
         @method('PUT')
         <div class="form ms-auto me-auto">
             <label for="">Codigo de Cancion</label>
-            <input type="number" name="" id="" placeholder="Codigo de Cancion" readonly value="">
+            <input type="number" name="codigo" id="" placeholder="Codigo de Cancion" readonly value="{{ $response['codigo'] }}">
 
             <label for="">Titulo</label>
-            <input type="text" name="" id="" placeholder="Titulo" value="">
+            <input type="text" name="titulo" id="" placeholder="Titulo" value="{{ $response['titulo'] }}">
 
             <label for="">Album</label>
-            <input type="text" name="" id="" placeholder="Album" value="">
+            <input type="text" name="album" id="" placeholder="Album" value="{{ $response['album'] }}">
 
             <label for="">Duración</label>
-            <input type="text" name="" id="" placeholder="Duración" value="">
+            <input type="text" name="duracion" id="" placeholder="Duración" maxlength="8" value="{{ $response['duracion'] }}">
 
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary"  onclick="return confirmDelete()">Editar {{ $response['titulo'] }}</button>
         </div>
     </form>
 

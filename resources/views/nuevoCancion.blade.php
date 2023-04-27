@@ -15,23 +15,20 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
         <h1>Agregar Nueva Cancion</h1>
-        <a href="cancion.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('song.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{ route('song.save') }}" method="POST">
         @csrf 
         <div class="form ms-auto me-auto">
-            <label for="">Codigo de Cancion</label>
-            <input type="number" name="" id="" placeholder="Codigo de Cancion">
-
             <label for="">Titulo</label>
-            <input type="text" name="" id="" placeholder="Titulo">
+            <input type="text" name="titulo" id="" placeholder="Titulo">
 
             <label for="">Album</label>
-            <input type="text" name="" id="" placeholder="Album">
+            <input type="text" name="album" id="" placeholder="Album">
 
             <label for="">Duración</label>
-            <input type="text" name="" id="" placeholder="Duración">
+            <input type="text" name="duracion" id="" placeholder="Duración">
 
             <button class="btn btn-primary">Guardar</button>
         </div>

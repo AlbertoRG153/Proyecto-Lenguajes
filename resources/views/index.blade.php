@@ -25,7 +25,7 @@
             </div>
         </a>
 
-        <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
+        <a href="{{ route('song.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Cancion</h1>
                 <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
