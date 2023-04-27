@@ -34,7 +34,7 @@
             <tbody>
                 @foreach ($response as $item)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$item['codigo'] }}</th>
                     <td>{{ $item['nombre'] }}</td>
                     <td>{{ $item['apellido'] }}</td>
                     <td>{{ $item['anio_debut'] }}</td>
