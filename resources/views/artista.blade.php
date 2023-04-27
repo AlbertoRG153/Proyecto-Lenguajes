@@ -38,13 +38,13 @@
                     <td>{{ $item['nombre'] }}</td>
                     <td>{{ $item['apellido'] }}</td>
                     <td>{{ $item['anio_debut'] }}</td>
-                    <td><a href="">Editar</a></td>
+                    <td><a href="{{ route('artist.edit') }}">Editar</a></td>
                     <td><a href="{{ route('artist.delete', $item['codigo']) }}">Eliminar</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <a href="nuevoArtista.blade.php" class="me-auto">
+        <a href={{ route('artist.create') }} class="me-auto">
             <button type="button" class="btn btn-primary">Agregar Artista</button>
         </a>
 
