@@ -15,7 +15,7 @@
     <nav class="nav centrar">
         <img src="../img/musical.png" alt="">
         <h1>Genero</h1>
-        <a href="index.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <div class="content">

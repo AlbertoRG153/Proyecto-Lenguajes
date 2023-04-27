@@ -15,9 +15,10 @@
     <nav class="nav centrar">
         <img src="../img/cantante.png" alt="">
         <h1>Artista</h1>
-        <a href="index.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
+    {{-- {{print_r($response);}} --}}
     <div class="content">
         <table class="table table-dark table-hover ">
             <thead>
@@ -31,22 +32,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($response as $item)
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{ $item['nombre'] }}</td>
+                    <td>{{ $item['apellido'] }}</td>
+                    <td>{{ $item['anio_debut'] }}</td>
                     <td><a href="">Editar</a></td>
-                    <td><a href="">Eliminar</a></td>
+                    <td><a href="{{ route('artist.delete', $item['codigo']) }}">Eliminar</a></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="">Editar</a></td>
-                    <td><a href="">Eliminar</a></td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
         <a href="nuevoArtista.blade.php" class="me-auto">

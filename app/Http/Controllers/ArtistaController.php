@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Http;
 
 class ArtistaController extends Controller{
 
+
     public function index()
     {
         $url = 'http://localhost:8080/artist/listar';
-        $response = Http::get($url);
-        if ($response->ok()) {
-            print_r($response->json());
+        $response2 = Http::get($url);
+        if ($response2->ok()) {
+            $response = $response2->json();
+            return view('artista',compact('response',));
         } else{
             printf('Hubo un error al encontrar los artistas');
         }
@@ -40,7 +42,7 @@ class ArtistaController extends Controller{
         $url = 'http://localhost:8080/artist/delete/'.$id;
         $response = Http::delete($url);
         if ($response->ok()) {
-            printf('Se ha eliminado correctamente');
+            return $this->index();
         } else{
             printf('Hubo un error al eliminar al artista');
         }
