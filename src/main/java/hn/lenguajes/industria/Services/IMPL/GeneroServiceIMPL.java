@@ -41,5 +41,11 @@ public class GeneroServiceIMPL implements GeneroService{
     public Genero findGend(int cod) {
         return this.rep.findById(cod).get();
     }
+
+    @Override
+    public Genero editGend(Genero gender) {
+        gender.setDescripcion(gender.getDescripcion());
+        return this.rep.save(gender);
+    }
     
 }

@@ -12,7 +12,6 @@ import hn.lenguajes.industria.Repository.CancionRepository;
 import hn.lenguajes.industria.Repository.GeneroRepository;
 import hn.lenguajes.industria.Services.CancionService;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,6 +72,12 @@ public class CancionServicesIMPL implements CancionService{
         gendersList.add(gender);
         song.setGeneros(gendersList);
         return rep.save(song);
+    }
+
+    @Override
+    public Cancion editSong(Cancion song) {
+        song.setTitulo(song.getTitulo());
+        return this.rep.save(song);
     }
     
 }

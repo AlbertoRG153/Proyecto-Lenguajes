@@ -16,6 +16,8 @@ public interface productoraService {
     
     Productora saveProd(Productora productora);
     
+    Productora editProd(Productora productora);
+    
     void deleteProd(int cod);
     
     Productora findProd(int cod);

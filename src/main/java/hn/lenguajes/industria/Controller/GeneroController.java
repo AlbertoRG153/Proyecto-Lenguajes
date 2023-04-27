@@ -44,4 +44,10 @@ public class GeneroController {
     public ResponseEntity<?> find(@PathVariable int id){
         return ResponseEntity.ok(this.impl.findGend(id));
     }
+
+    @PutMapping("/edit")
+    public ResponseEntity<?> edit(@RequestBody Genero gend){
+        Genero editGend=this.impl.editGend(gend);
+        return ResponseEntity.status(HttpStatus.CREATED).body(editGend);
+    }
 }

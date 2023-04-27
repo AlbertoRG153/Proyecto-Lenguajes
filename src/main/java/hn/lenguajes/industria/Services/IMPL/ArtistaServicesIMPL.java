@@ -51,7 +51,12 @@ public class ArtistaServicesIMPL implements ArtistaService{
         Artista artist = this.rep.findById(art).get();
         Productora producer = this.repP.findById(prod).get();
         artist.setProductora(producer);
-        return rep.save(artist);
+        return this.rep.save(artist);
+    }
+
+    @Override
+    public Artista editArt(Artista artist) {
+        return this.rep.save(artist);
     }
     
 }

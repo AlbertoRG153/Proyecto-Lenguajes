@@ -55,4 +55,10 @@ public class CancionController {
     public ResponseEntity<?> assignGenderToSong(@PathVariable int gen, @PathVariable int song){
         return ResponseEntity.ok(this.impl.assignGenderToSong(gen, song));
     }
+    
+    @PutMapping("/edit")
+    public ResponseEntity<?> edit(@RequestBody Cancion song){
+        Cancion editSong=this.impl.editSong(song);
+        return ResponseEntity.status(HttpStatus.CREATED).body(editSong);
+    }
 }

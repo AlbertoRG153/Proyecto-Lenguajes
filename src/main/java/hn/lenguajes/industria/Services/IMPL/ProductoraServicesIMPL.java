@@ -42,4 +42,10 @@ public class ProductoraServicesIMPL implements productoraService{
         return this.ProdRep.findById(cod).get();
     }
 
+    @Override
+    public Productora editProd(Productora productora) {
+        productora.setNombre(productora.getNombre());
+        return this.ProdRep.save(productora);
+    }
+
 }

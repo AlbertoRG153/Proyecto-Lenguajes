@@ -50,4 +50,10 @@ public class ArtistaController {
     public ResponseEntity<?> assignProducertoArtist(@PathVariable int art, @PathVariable int prod){
         return ResponseEntity.ok(this.impl.assignProducertoArtist(art, prod));
     }
+    
+    @PutMapping("/edit")
+    public ResponseEntity<?> edit(@RequestBody Artista art){
+        Artista editProd=this.impl.editArt(art);
+        return ResponseEntity.status(HttpStatus.CREATED).body(editProd);
+    }
 }

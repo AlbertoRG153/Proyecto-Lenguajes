@@ -16,6 +16,8 @@ public interface CancionService{
     
     Cancion saveSong(Cancion song);
     
+    Cancion editSong(Cancion song);
+    
     Cancion assignArtistToSong(int art, int son);
     
     Cancion assignGenderToSong(int gen, int son);

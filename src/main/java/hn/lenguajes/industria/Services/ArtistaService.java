@@ -20,5 +20,7 @@ public interface ArtistaService {
     
     Artista findArt(int cod);
     
+    Artista editArt(Artista artist);
+    
     Artista assignProducertoArtist(int art, int prod);
 }

@@ -16,6 +16,8 @@ public interface GeneroService {
     
     Genero saveGend(Genero gender);
     
+    Genero editGend(Genero gender);
+    
     void deleteGend(int cod);
     
     Genero findGend(int cod);
