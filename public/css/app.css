@@ -8,6 +8,14 @@
     src: url(../fonts/Poppins-Light.ttf);
 }
 
+.font-principal {
+    font-family: 'font-principal';
+}
+
+.font-secundario {
+    font-family: 'font-secundariol';
+}
+
 body {
     background-image: linear-gradient(#b0cbd9, #94a7e6);
     height: 100vh;
