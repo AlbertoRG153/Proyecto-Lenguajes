@@ -8,14 +8,14 @@
     <title>Agregar Artista</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/cantante.png" alt="">
+        <img src="{{ asset('/img/cantante.png') }}" alt="">
         <h1>Agregar Nuevo Artista</h1>
-        <a href="artista.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="index"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <form action="" method="POST">

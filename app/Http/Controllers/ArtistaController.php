@@ -22,6 +22,12 @@ class ArtistaController extends Controller{
 
     public function create()
     {
+        return view('nuevoArtista');
+    }
+
+    public function save()
+    {
+
         $url = 'http://localhost:8080/artist/create';
         $response = Http::post($url,
                             [
@@ -31,10 +37,18 @@ class ArtistaController extends Controller{
                             ]
     );
         if ($response->getStatusCode() === 201) {
-            print_r($response->json());
+            return $this->index();
         } else{
             printf('Hubo un error al guardar al artista');
-        }    
+        }  
+
+    }
+
+    public function edit()
+    {
+
+        return view('editarArtista');
+
     }
 
     public function delete($id)

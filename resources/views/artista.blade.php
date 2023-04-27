@@ -8,12 +8,12 @@
     <title>Artista</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/cantante.png" alt="">
+        <img src="{{ asset('/img/cantante.png') }}" alt="">
         <h1>Artista</h1>
         <a href="{{ route('index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
@@ -34,17 +34,17 @@
             <tbody>
                 @foreach ($response as $item)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$item['codigo'] }}</th>
                     <td>{{ $item['nombre'] }}</td>
                     <td>{{ $item['apellido'] }}</td>
                     <td>{{ $item['anio_debut'] }}</td>
-                    <td><a href="">Editar</a></td>
+                    <td><a href="{{ route('artist.edit') }}">Editar</a></td>
                     <td><a href="{{ route('artist.delete', $item['codigo']) }}">Eliminar</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <a href="nuevoArtista.blade.php" class="me-auto">
+        <a href={{ route('artist.create') }} class="me-auto">
             <button type="button" class="btn btn-primary">Agregar Artista</button>
         </a>
 
