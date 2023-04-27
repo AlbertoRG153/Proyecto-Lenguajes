@@ -46,13 +46,8 @@ Route::get('/producer/guardar', [ProductoraController::class, 'save'])->name('pr
 //Rutas Artista
 Route::get('/artist', [ArtistaController::class, 'index'])->name('artist.index');
 Route::get('/artist/create', [ArtistaController::class, 'create'])->name('artist.create');
-<<<<<<< HEAD
 Route::get('/artist/edit/{id}', [ArtistaController::class, 'edit'])->name('artist.edit');
 Route::get('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
-=======
-Route::get('/artist/edit', [ArtistaController::class, 'edit'])->name('artist.edit');
-Route::post('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
->>>>>>> a27240a8574a8b9cfc3ef6750d1752a3e4548a1c
 Route::get('/artist/delete/{id}', [ArtistaController::class, 'delete'])->name('artist.delete');
 Route::get('/artist/find/{id}', [ArtistaController::class, 'getByID'])->name('artist.find');
 Route::get('/artist/{art}/producer/{prod}', [ArtistaController::class, 'prodToArt'])->name('artist.prodToArt');
