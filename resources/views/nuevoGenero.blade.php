@@ -13,7 +13,7 @@
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/musical.png" alt="">
+        <img src="{{ asset('/img/musical.png') }}" alt="">
         <h1>Agregar Nuevo Genero</h1>
         <a href="genero.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>

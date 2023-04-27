@@ -13,7 +13,7 @@
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/estudio-de-grabacion.png" alt="">
+        <img src="{{ asset('/img/estudio-de-grabacion.png') }}" alt="">
         <h1>Editar Productora</h1>
         <a href="productora.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>

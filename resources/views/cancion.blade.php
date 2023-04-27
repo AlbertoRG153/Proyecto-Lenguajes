@@ -13,7 +13,7 @@
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/disco-de-vinilo.png" alt="">
+        <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
         <h1>Cancion</h1>
         <a href="{{ route('index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>

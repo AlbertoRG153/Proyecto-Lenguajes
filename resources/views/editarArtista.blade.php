@@ -13,7 +13,7 @@
 
 <body>
     <nav class="nav centrar">
-        <img src="../img/cantante.png" alt="">
+        <img src="{{ asset('/img/cantante.png') }}" alt="">
         <h1>Editar Artista</h1>
         <a href="artista.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>

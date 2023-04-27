@@ -21,21 +21,21 @@
         <a href="{{ route('artist.index') }}">
             <div class="tarjeta centrar">
                 <h1>Artista</h1>
-                <img src="../img/cantante.png" alt="">
+                <img src="{{ asset('/img/cantante.png') }}" alt="">
             </div>
         </a>
 
         <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Cancion</h1>
-                <img src="../img/disco-de-vinilo.png" alt="">
+                <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
             </div>
         </a>
 
         <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Genero</h1>
-                <img src="../img/musical.png" alt="">
+                <img src="{{ asset('/img/musical.png') }}" alt="">
             </div>
 
         </a>
@@ -43,7 +43,7 @@
         <a href="{{ route('producer.index') }}">
             <div class="tarjeta centrar">
                 <h1>Productora</h1>
-                <img src="../img/estudio-de-grabacion.png" alt="">
+                <img src="{{ asset('/img/estudio-de-grabacion.png') }}" alt="">
             </div>
         </a>
     </div>
