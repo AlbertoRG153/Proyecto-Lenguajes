@@ -25,14 +25,14 @@
             </div>
         </a>
 
-        <a href="{{ route('artist.index') }}">
+        <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Cancion</h1>
                 <img src="../img/disco-de-vinilo.png" alt="">
             </div>
         </a>
 
-        <a href="{{ route('artist.index') }}">
+        <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Genero</h1>
                 <img src="../img/musical.png" alt="">
