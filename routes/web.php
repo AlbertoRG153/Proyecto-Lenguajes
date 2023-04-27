@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ProductoraController;
+use App\Http\Controllers\ProductoraController;
 
 /*
 
