@@ -8,14 +8,14 @@
     <title>Productora</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body>
     <nav class="nav centrar">
         <img src="../img/estudio-de-grabacion.png" alt="">
         <h1>Productora</h1>
-        <a href="index.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <div class="content">
@@ -31,25 +31,20 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($productora as $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="">Editar</a></td>
-                    <td><a href="">Eliminar</a></td>
+                    <th scope="row">{{$item['codigo_productora'] }}</th>
+                    <td>{{ $item['nombre'] }}</td>
+                    <td>{{ $item['anio_inicio'] }}</td>
+                    <td>{{ $item['pais_origen'] }}</td>
+
+                    <td><a href="{{ route('producer.edit', $item['codigo_productora']) }}">Editar</a></td>
+                    <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}">Eliminar</a></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="">Editar</a></td>
-                    <td><a href="">Eliminar</a></td>
-                </tr>
+               @endforeach
             </tbody>
         </table>
-        <a href="nuevoProductora.blade.php" class="me-auto">
+        <a href="{{ route('producer.guardar') }}" class="me-auto">
             <button type="button" class="btn btn-primary me-auto">Agregar Productora</button>
         </a>
     </div>
