@@ -41,8 +41,8 @@
                     <td><a href="{{ route('song.edit', $item['codigo']) }}">Editar</a></td>
                     <td><a href="{{ route('song.delete', $item['codigo']) }}" onclick="return confirmDelete()">Eliminar</a></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
-                        </button>
+                        <a type="button" class="btn btn-primary"  href="{{ route('song.find', $item['codigo']) }}"> Ver Mas
+                        </a>
                     </td>
                 </tr>
                 @endforeach
@@ -55,66 +55,10 @@
         </a>
     </div>
 
-<!-- Modal -->
-    <div class="modal fade" id="verModal" tabindex="-1" aria-labelledby="verModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 font-principal" id="verModalLabel">Detalle Cancion (Codigo)</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
 
-                    {{-- Tabla de Artistas --}}
-                    <h3 class="font-principal">Artistas</h3>
-                    <table class="table table-dark table-hover ">
-                        <thead>
-                            {{-- @foreach($response as $item) --}}
-                            <tr>
-                                <th scope="col">1</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Año Debut</th>                                
-                            </tr>
-                            {{-- @endforeach --}}
-                        </thead>
-                        <tbody>                            
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>asd</td>
-                                <td>asd</td>
-                                <td>asd</td>                                
-                            </tr>                           
-                        </tbody>
-                    </table>
 
-                    {{-- Tabla de Generos --}}
-                    <h3 class="font-principal">Generos</h3>
-                    <table class="table table-dark table-hover ">
-                        <thead>
-                            <tr>
-                                <th scope="col">codigoGenero</th>
-                                <th scope="col">Descripción</th>                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>                                
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>                                
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>                   
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
