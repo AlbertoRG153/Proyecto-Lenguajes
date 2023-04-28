@@ -69,12 +69,14 @@
                     <h3 class="font-principal">Artistas</h3>
                     <table class="table table-dark table-hover ">
                         <thead>
+                            {{-- @foreach($response as $item) --}}
                             <tr>
-                                <th scope="col">codigoArtista</th>
+                                <th scope="col">1</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Año Debut</th>                                
                             </tr>
+                            {{-- @endforeach --}}
                         </thead>
                         <tbody>                            
                             <tr>

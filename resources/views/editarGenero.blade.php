@@ -28,7 +28,7 @@
             <label for="">Decripción</label>
             <input type="text" name="descripcion" id="" placeholder="Decripción" value="{{ $response['descripcion'] }}">
 
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary" onclick="return confirmEdit()">Guardar</button>
         </div>
     </form>
 
