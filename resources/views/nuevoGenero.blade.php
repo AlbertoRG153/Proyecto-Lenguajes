@@ -15,15 +15,15 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/musical.png') }}" alt="">
         <h1>Agregar Nuevo Genero</h1>
-        <a href="genero.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{route('gender.index')}}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{route('gender.save')}}" method="POST">
         @csrf
         <div class="form ms-auto me-auto">            
 
             <label for="">Decripción</label>
-            <input type="text" name="" id="" placeholder="Decripción">
+            <input type="text" name="genero" id="" placeholder="Decripción">
 
             <button class="btn btn-primary">Guardar</button>
         </div>

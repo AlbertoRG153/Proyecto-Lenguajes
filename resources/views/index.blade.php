@@ -32,7 +32,7 @@
             </div>
         </a>
 
-        <a href="{{ route('artist.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
+        <a href="{{ route('gender.index') }}"> {{-- ruta temporal mientras se crean los controladores --}}
             <div class="tarjeta centrar">
                 <h1>Genero</h1>
                 <img src="{{ asset('/img/musical.png') }}" alt="">

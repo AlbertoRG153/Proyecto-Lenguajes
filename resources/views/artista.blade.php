@@ -40,7 +40,7 @@
                     <td>{{ $item['apellido'] }}</td>
                     <td>{{ $item['anio_debut'] }}</td>
                     <td><a href="{{ route('artist.edit', $item['codigo']) }}">Editar</a></td>
-                    <td><a href="{{ route('artist.delete', $item['codigo']) }}">Eliminar</a></td>
+                    <td><a href="{{ route('artist.delete', $item['codigo']) }}" onclick="return confirmDelete()">Eliminar</a></td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
                         </button>
@@ -115,6 +115,7 @@
     </div>
 
 
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

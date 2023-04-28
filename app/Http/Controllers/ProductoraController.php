@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class ProductoraController extends Controller{
+class ProductoraController extends Controller
+{
 
     public function index()
     {
         $url = 'http://localhost:8080/producer/listar';
         $response = Http::get($url);
         if ($response->ok()) {
-            $productora =$response->json();
-            return view ('productora', compact('productora'));
-        } else{
+            $productora = $response->json();
+            return view('productora', compact('productora'));
+        } else {
             printf('Hubo un error al encontrar los producer');
         }
     }
@@ -22,28 +23,29 @@ class ProductoraController extends Controller{
     public function create()
     {
         $url = 'http://localhost:8080/producer/create';
-        $response = Http::post($url,
-                            [
-                                'nombre' => 'BigHiglLabels',
-                                'anio_inicio' =>  '2021',
-                                'pais_origen' =>  'Korea'
-                               
-                            ]
-    );
+        $response = Http::post(
+            $url,
+            [
+                'nombre' => 'BigHiglLabels',
+                'anio_inicio' =>  '2021',
+                'pais_origen' =>  'Korea'
+
+            ]
+        );
         if ($response->getStatusCode() === 201) {
-            return view ('productora');
-        } else{
+            return view('productora');
+        } else {
             printf('Hubo un error al guardar al producer');
-        }    
+        }
     }
 
     public function delete($id)
     {
-        $url = 'http://localhost:8080/producer/delete/'.$id;
+        $url = 'http://localhost:8080/producer/delete/' . $id;
         $response = Http::delete($url);
         if ($response->ok()) {
             return $this->index();
-        } else{
+        } else {
             printf('Hubo un error al eliminar al producer');
         }
     }
@@ -51,29 +53,27 @@ class ProductoraController extends Controller{
 
     public function getByID($id)
     {
-        $url = 'http://localhost:8080/producer/find/'.$id;
+        $url = 'http://localhost:8080/producer/find/' . $id;
         $response = Http::get($url);
 
         if ($response->ok()) {
             print_r($response->json());
-        } else{
+        } else {
             printf('No se encontro el producer');
         }
-        
     }
 
     public function edit($id)
     {
-        $url = 'http://localhost:8080/producer/find/'.$id;
+        $url = 'http://localhost:8080/producer/find/' . $id;
         $response = Http::get($url);
 
         if ($response->ok()) {
-            $productora =$response->json();
-            return view ('editarProductora', compact('productora'));
-        } else{
+            $productora = $response->json();
+            return view('editarProductora', compact('productora'));
+        } else {
             printf('No se encontro el producer');
         }
-        
     }
 
     public function save()

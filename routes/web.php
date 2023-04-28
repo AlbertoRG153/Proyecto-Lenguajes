@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ProductoraController;
 use App\Http\Controllers\CancionController;
+use App\Http\Controllers\GeneroController;
 
 /*
 
@@ -63,3 +64,9 @@ Route::get('/song/find/{id}', [CancionController::class, 'getByID'])->name('song
 Route::get('/song/{song}/artist/{art}', [CancionController::class, 'artToSong'])->name('song.artToSong');
 Route::get('/song/{song}/gender/{gend}', [CancionController::class, 'genderToSong'])->name('song.genderToSong');
 //Rutas de Genero
+Route::get('/gender', [GeneroController::class, 'index'])->name('gender.index');
+Route::get('/gender/create', [GeneroController::class, 'create'])->name('gender.create');
+Route::post('/gender/save', [GeneroController::class, 'save'])->name('gender.save');
+Route::get('/gender/delete/{id}', [GeneroController::class, 'delete'])->name('gender.delete');
+Route::get('/gender/edit/{id}', [GeneroController::class, 'edit'])->name('gender.edit');
+Route::put('/gender/update', [GeneroController::class, 'update'])->name('gender.update');

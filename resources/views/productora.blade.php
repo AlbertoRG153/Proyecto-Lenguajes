@@ -39,7 +39,7 @@
                     <td>{{ $item['anio_inicio'] }}</td>
                     <td>{{ $item['pais_origen'] }}</td>
                     <td><a href="{{ route('producer.edit', $item['codigo_productora']) }}">Editar</a></td>
-                    <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}">Eliminar</a></td>
+                    <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}" onclick="return confirmDelete()">Eliminar</a></td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
                         </button>

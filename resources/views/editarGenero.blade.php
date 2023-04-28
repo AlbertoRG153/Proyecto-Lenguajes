@@ -15,18 +15,18 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/musical.png') }}" alt="">
         <h1>Editar Genero</h1>
-        <a href="genero.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{route('gender.index')}}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{ route('gender.update') }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form ms-auto me-auto">
             <label for="">Codigo de Genero</label>
-            <input type="number" name="" id="" placeholder="Codigo de Genero" readonly value="">
+            <input type="number" name="codigo" id="" placeholder="Codigo de Genero" readonly value="{{ $response['codigo'] }}">
 
             <label for="">Decripción</label>
-            <input type="text" name="" id="" placeholder="Decripción" value="">
+            <input type="text" name="descripcion" id="" placeholder="Decripción" value="{{ $response['descripcion'] }}">
 
             <button class="btn btn-primary">Guardar</button>
         </div>
