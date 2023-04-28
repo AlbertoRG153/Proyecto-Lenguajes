@@ -23,7 +23,19 @@ class CancionController extends Controller
 
     public function create()
     {
-        return view('nuevoCancion');
+        $url = 'http://localhost:8080/artist/listar';
+        $response = Http::get($url);
+
+        $url2 = 'http://localhost:8080/gender/listar';
+        $response2 = Http::get($url2);
+
+        if ($response->ok() && $response2->ok()) {
+            $artista = $response->json();
+            $genero = $response2->json();
+            return view('nuevoCancion', compact('artista','genero'));
+        } else {
+            printf('Hubo un error al encontrar los elementos');
+        }
     }
 
     public function edit($id)
