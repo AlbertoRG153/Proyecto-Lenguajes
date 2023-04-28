@@ -32,23 +32,6 @@ class ArtistaController extends Controller{
         }
     }
 
-
-    private function prueba(){
-
-        $url2 = 'http://localhost:8080/artist/listar';
-        $response2 = Http::get($url2);
-        if ($response2->ok()) {
-            $response3 = $response2->json();
-            error_log("correcto");
-        } else{
-            printf('Hubo un error al encontrar los artistas');
-            error_log("un error");
-        }
-
-    }
-
-
-
     public function save(Request $request)
     {
         $url = 'http://localhost:8080/artist/create';
@@ -165,18 +148,9 @@ class ArtistaController extends Controller{
         }
     }
 
+    public function showProducer(){
 
-    /*
-        public function create(Request $request)
-        {
-            $response = Http::post('http://localhost:8080/artist/create',
-                                [
-                                    'nombre' => $request->post('nombre'),
-                                    'apellido' => $request->post('apellido'),
-                                    'anio_debut' => $request->post('anio_debut')
-                                ]
-        );
-            print_r($response->status());
-        }
-    */
+        
+
+    }
 }

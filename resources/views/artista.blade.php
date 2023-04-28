@@ -29,6 +29,7 @@
                     <th scope="col">Año Debut</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,10 @@
                     <td>{{ $item['anio_debut'] }}</td>
                     <td><a href="{{ route('artist.edit', $item['codigo']) }}">Editar</a></td>
                     <td><a href="{{ route('artist.delete', $item['codigo']) }}">Eliminar</a></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
+                        </button>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -48,6 +53,65 @@
             <button type="button" class="btn btn-primary">Agregar Artista</button>
         </a>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="verModal" tabindex="-1" aria-labelledby="verModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 font-principal" id="verModalLabel">Detalle Cancion (Codigo)</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    {{-- Tabla de Artistas --}}
+                    <h3 class="font-principal">Canciones</h3>
+                    <table class="table table-dark table-hover ">
+                        <thead>
+                            <tr>
+                                <th scope="col">codigoCancion</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Álbum</th>
+                                <th scope="col">Duración Debut</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>asd</td>
+                                <td>asd</td>
+                                <td>asd</td>                                
+                            </tr>                           
+                        </tbody>
+                    </table>
+
+                    {{-- Tabla de Generos --}}
+                    <h3 class="font-principal">Productora</h3>
+                    <table class="table table-dark table-hover ">
+                        <thead>
+                            <tr>
+                                <th scope="col">codigoProductora</th>
+                                <th scope="col">Nombre</th>  
+                                <th scope="col">Año Inicio</th>  
+                                <th scope="col">País de Origen</th>                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>asd</td>
+                                <td>asd</td>
+                                <td>asd</td>                             
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>                   
+                </div>
+            </div>
+        </div>
     </div>
 
 
