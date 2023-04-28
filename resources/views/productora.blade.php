@@ -41,8 +41,8 @@
                     <td><a href="{{ route('producer.edit', $item['codigo_productora']) }}">Editar</a></td>
                     <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}" onclick="return confirmDelete()">Eliminar</a></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
-                        </button>
+                        <a type="button" class="btn btn-primary" href="{{ route('producer.find', $item['codigo_productora']) }}">Ver Mas
+                        </a>
                     </td>
                 </tr>
                 @endforeach
@@ -85,7 +85,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>                   
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Cerrar</button>                   
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@
                     <td>{{$detalle['duracion'] }}</td>
                     <td><a href="{{ route('song.edit', $detalle['codigo']) }}">Editar</a></td>
                     <td><a href="{{ route('song.delete', $detalle['codigo']) }}" onclick="return confirmDelete()">Eliminar</a></td>
-                    
+                    {{--  --}}
                 </tr>
                 
             </tbody>
@@ -59,7 +59,7 @@
                
             </thead>
             <tbody>                            
-                <tr>
+                {{-- <tr>
                     @foreach($detalle['artist'] as $item) 
                     <th scope="row"> {{$item['codigo']}}</th>
                     <td> {{$item['nombre']}}</td>
@@ -67,7 +67,7 @@
                     <td> {{$item['anio_debut']}}</td>  
                      @endforeach                               
                 </tr>                           
-            </tbody>
+            </tbody> --}}
         </table>
 
         {{-- Tabla de Generos --}}
@@ -105,3 +105,5 @@
 </body>
 
 </html>
+
+

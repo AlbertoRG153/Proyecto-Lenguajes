@@ -70,10 +70,12 @@ class ProductoraController extends Controller
     public function getByID($id)
     {
         $url = 'http://localhost:8080/producer/find/' . $id;
+
         $response = Http::get($url);
 
         if ($response->ok()) {
-            print_r($response->json());
+            $proArt=$response->json();
+            return view('proArt', compact('proArt'));
         } else {
             printf('No se encontro el producer');
         }
