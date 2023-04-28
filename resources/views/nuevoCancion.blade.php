@@ -40,34 +40,34 @@
                     @foreach ($artista as $item)
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="artista{{ $item['codigo'] }}" name="artistas[]">
+                            <label class="form-check-label" for="artista{{ $item['codigo'] }}">
                                 "{{ $item['nombre'] . ' ' . $item['apellido'] }}"
                             </label>
                         </div>
                     </li>
                     @endforeach
                 </ul>
-                </div>
-
+            </div>
+                
             <label for="" class="mt-4">Selccione Generos</label>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Generos
+                    Géneros
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark mb-4">
                     @foreach ($genero as $item)
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="genero{{ $item['codigo'] }}" name="generos[]">
+                            <label class="form-check-label" for="genero{{ $item['codigo'] }}">
                                 "{{ $item['descripcion'] }}"
                             </label>
                         </div>
                     </li>
                     @endforeach
                 </ul>
-                </div>
+            </div>
 
             
             <button class="btn btn-primary mt-5">Guardar</button>
