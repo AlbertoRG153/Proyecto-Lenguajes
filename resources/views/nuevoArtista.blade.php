@@ -21,8 +21,6 @@
     <form action="{{ route('artist.save') }}" method="POST">
         @csrf
         <div class="form ms-auto me-auto">
-            <!--<label for="">Codigo de Artista</label>
-            <input type="number" name="codigo" id="" placeholder="Codigo de Artista">-->
 
             <label for="">Nombre</label>
             <input type="text" name="nombre" id="" placeholder="Nombre">
@@ -34,15 +32,16 @@
             <input type="text" name="anio_debut" id="" placeholder="Año Debut">
 
             <label for="">Codigo de Productora</label>
-            <select name="" id="">
+            <select name="productora" id="">
                 @foreach ($productora as $item)
-                <option value="{{ $item['codigo_productora'] }}">{{ $item['nombre'] }}</option>
+                <option value="{{ $item['codigo_productora'] }}"> {{ $item['nombre'] }} </option>
                 @endforeach
             </select>
             <button class="btn btn-primary">Guardar</button>
         </div>
     </form>
 
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

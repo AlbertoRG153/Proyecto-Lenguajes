@@ -28,6 +28,7 @@
                     <th scope="col">País de Origen</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -37,11 +38,14 @@
                     <td>{{ $item['nombre'] }}</td>
                     <td>{{ $item['anio_inicio'] }}</td>
                     <td>{{ $item['pais_origen'] }}</td>
-
                     <td><a href="{{ route('producer.edit', $item['codigo_productora']) }}">Editar</a></td>
-                    <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}">Eliminar</a></td>
+                    <td><a href="{{ route('producer.delete', $item['codigo_productora']) }}" onclick="return confirmDelete()">Eliminar</a></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verModal">Ver Mas
+                        </button>
+                    </td>
                 </tr>
-               @endforeach
+                @endforeach
             </tbody>
         </table>
         <a href="{{ route('producer.guardar') }}" class="me-auto">
@@ -49,7 +53,46 @@
         </a>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="verModal" tabindex="-1" aria-labelledby="verModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 font-principal" id="verModalLabel">Detalle Prodcutora (Codigo)</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
+                    {{-- Tabla de Artista --}}
+                    <h3 class="font-principal">Artista</h3>
+                    <table class="table table-dark table-hover ">
+                        <thead>
+                            <tr>
+                                <th scope="col">codigoArtista</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Año Debut</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>asd</td>
+                                <td>asd</td>
+                                <td>asd</td>                                
+                            </tr>                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

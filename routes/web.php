@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ProductoraController;
 use App\Http\Controllers\CancionController;
+use App\Http\Controllers\GeneroController;
 
 /*
 
@@ -47,7 +48,8 @@ Route::get('/producer/guardar', [ProductoraController::class, 'save'])->name('pr
 Route::get('/artist', [ArtistaController::class, 'index'])->name('artist.index');
 Route::get('/artist/create', [ArtistaController::class, 'create'])->name('artist.create');
 Route::get('/artist/edit/{id}', [ArtistaController::class, 'edit'])->name('artist.edit');
-Route::get('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
+Route::put('/artist/update', [ArtistaController::class, 'update'])->name('artist.update');
+Route::post('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
 Route::get('/artist/delete/{id}', [ArtistaController::class, 'delete'])->name('artist.delete');
 Route::get('/artist/find/{id}', [ArtistaController::class, 'getByID'])->name('artist.find');
 Route::get('/artist/{art}/producer/{prod}', [ArtistaController::class, 'prodToArt'])->name('artist.prodToArt');
@@ -61,3 +63,10 @@ Route::get('/song/delete/{id}', [CancionController::class, 'delete'])->name('son
 Route::get('/song/find/{id}', [CancionController::class, 'getByID'])->name('song.find');
 Route::get('/song/{song}/artist/{art}', [CancionController::class, 'artToSong'])->name('song.artToSong');
 Route::get('/song/{song}/gender/{gend}', [CancionController::class, 'genderToSong'])->name('song.genderToSong');
+//Rutas de Genero
+Route::get('/gender', [GeneroController::class, 'index'])->name('gender.index');
+Route::get('/gender/create', [GeneroController::class, 'create'])->name('gender.create');
+Route::post('/gender/save', [GeneroController::class, 'save'])->name('gender.save');
+Route::get('/gender/delete/{id}', [GeneroController::class, 'delete'])->name('gender.delete');
+Route::get('/gender/edit/{id}', [GeneroController::class, 'edit'])->name('gender.edit');
+Route::put('/gender/update', [GeneroController::class, 'update'])->name('gender.update');

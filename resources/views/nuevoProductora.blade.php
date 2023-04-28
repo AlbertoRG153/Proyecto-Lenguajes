@@ -15,14 +15,12 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/estudio-de-grabacion.png') }}" alt="">
         <h1>Agregar Nueva Productora</h1>
-        <a href="productora.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('producer.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <form action="" method="POST">
         @csrf
         <div class="form ms-auto me-auto">
-            <label for="">Codigo de Productora</label>
-            <input type="number" name="" id="" placeholder="Codigo de Productora">
 
             <label for="">Nombre</label>
             <input type="text" name="" id="" placeholder="Nombre">
@@ -33,10 +31,16 @@
             <label for="">País de Origen</label>
             <input type="text" name="" id="" placeholder="País de Origen">
 
+            <label for="">Codigo de Artista</label>
+            <select name="artista" id="">                
+                <option value="">1</option>                 
+            </select>
+
             <button class="btn btn-primary">Guardar</button>
         </div>
     </form>
 
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

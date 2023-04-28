@@ -15,7 +15,7 @@
     <nav class="nav centrar">
         <img src="{{ asset('/img/estudio-de-grabacion.png') }}" alt="">
         <h1>Editar Productora</h1>
-        <a href="productora.blade.php"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <a href="{{ route('producer.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <form action="" method="POST">
@@ -33,6 +33,12 @@
 
             <label for="">País de Origen</label>
             <input type="text" name="" id="" placeholder="País de Origen" value="">
+
+            <label for="">Codigo de Artista</label>
+            <select name="artista" id="">                
+                <option value="">1</option>                 
+            </select>
+
 
             <button class="btn btn-primary">Guardar</button>
         </div>

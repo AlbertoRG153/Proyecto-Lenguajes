@@ -18,30 +18,34 @@
         <a href="{{ route('artist.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{ route('artist.update') }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form ms-auto me-auto">
             <label for="">Codigo de Artista</label>
-            <input type="number" name="" id="" placeholder="Codigo de Artista" readonly value="">
+            <input type="number" name="codigo" id="" placeholder="Codigo de Artista" readonly value="{{$artista['codigo']}}">
 
             <label for="">Nombre</label>
-            <input type="text" name="" id="" placeholder="Nombre" value="">
+            <input type="text" name="nombre" id="" placeholder="Nombre" value="{{$artista['nombre']}}">
 
             <label for="">Apellido</label>
-            <input type="text" name="" id="" placeholder="Apellido" value="">
+            <input type="text" name="apellido" id="" placeholder="Apellido" value="{{$artista['apellido']}}">
 
             <label for="">Año Debut</label>
-            <input type="text" name="" id="" placeholder="Año Debut" value="">
+            <input type="text" name="anio_debut" id="" placeholder="Año Debut" value="{{$artista['anio_debut']}}">
 
+            
             <label for="">Codigo de Productora</label>
-            <select name="" id="">
-                <option value="">1</option>
+            <select name="productora" id="">
+                @foreach ($productora as $item)
+                <option value="{{ $item['codigo_productora'] }}"> {{ $item['nombre'] }} </option>
+                @endforeach
             </select>
             <button class="btn btn-primary">Guardar</button>
         </div>
     </form>
 
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
