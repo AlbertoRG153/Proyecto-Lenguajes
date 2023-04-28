@@ -37,22 +37,16 @@
                     Artistas
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark mb-4">
+                    @foreach ($artista as $item)
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
-                                Artista 1
+                                "{{ $item['nombre'] . ' ' . $item['apellido'] }}"
                             </label>
                         </div>
                     </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Artista 2
-                            </label>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
                 </div>
 
@@ -62,22 +56,16 @@
                     Generos
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark mb-4">
+                    @foreach ($genero as $item)
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input check" type="checkbox" value="{{ $item['codigo'] }}" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
-                                Genero 1
+                                "{{ $item['descripcion'] }}"
                             </label>
                         </div>
                     </li>
-                    <li>
-                        <div class="form-check">
-                            <input class="form-check-input check" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Genero 2
-                            </label>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
                 </div>
 
