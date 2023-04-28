@@ -61,3 +61,4 @@ Route::get('/song/delete/{id}', [CancionController::class, 'delete'])->name('son
 Route::get('/song/find/{id}', [CancionController::class, 'getByID'])->name('song.find');
 Route::get('/song/{song}/artist/{art}', [CancionController::class, 'artToSong'])->name('song.artToSong');
 Route::get('/song/{song}/gender/{gend}', [CancionController::class, 'genderToSong'])->name('song.genderToSong');
+//Rutas de Genero
