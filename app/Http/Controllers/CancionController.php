@@ -66,9 +66,38 @@ class CancionController extends Controller
             'duracion' => $request->input('duracion')
         ];
 
+        $artistasSelec = $request->input('artistas');
+
+        $generosSelec = $request->input('generos');
+
+        $codigoCancion = $request->input('codigo');
+
         $url = 'http://localhost:8080/song/edit';
         $response = Http::put($url, $cancion);
         if ($response->getStatusCode() === 201) {
+            
+            $url2 = 'http://localhost:8080/song/listar';
+            $response2 = Http::get($url2);
+            
+            try {
+                if ($response2->ok()) {
+                    foreach ($artistasSelec as $item) {
+                        $this->artToSong($item, $codigoCancion);
+                    };
+
+                    foreach ($generosSelec as $item){
+                        $this->genderToSong($item, $codigoCancion);
+                    };
+
+                    error_log("correcto");
+                }
+            } catch (\Exception $e) {
+                error_log('Excepción capturada: ' . $e->getMessage());
+            }
+
+
+
+
             return $this->index();
         } else {
             printf($response->status());
@@ -110,7 +139,7 @@ class CancionController extends Controller
         if ($response->ok()) {
         } else {
             $error = json_decode($response->getBody(), true)['error'];
-            printf('Hubo un error al asignar la productora: %s', $error);
+            printf('Hubo un error al asignar el elemento: %s', $error);
         }
     }
 
@@ -121,7 +150,7 @@ class CancionController extends Controller
         if ($response->ok()) {
         } else {
             $error = json_decode($response->getBody(), true)['error'];
-            printf('Hubo un error al asignar la productora: %s', $error);
+            printf('Hubo un error al asignar el elemento: %s', $error);
         }
     }
 
@@ -137,8 +166,6 @@ class CancionController extends Controller
         $artistasSelec = $request->post('artistas');
 
         $generosSelec = $request->post('generos');
-        $pe = implode(",", $generosSelec);
-        error_log($pe);
 
         $response = Http::post('http://localhost:8080/song/create', $cancion);
         if ($response->getStatusCode() === 201) {
