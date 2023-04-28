@@ -29,7 +29,6 @@
                     <th scope="col">Año Debut</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
