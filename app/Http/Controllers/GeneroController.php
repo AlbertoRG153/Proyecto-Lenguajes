@@ -29,7 +29,7 @@ class GeneroController extends Controller
     public function save(Request $request)
     {
         $genero = [
-            'descripcion' => $request->post('descripcion')
+            'descripcion' => $request->post('genero')
         ];
 
         $response = Http::post('http://localhost:8080/gender/create', $genero);

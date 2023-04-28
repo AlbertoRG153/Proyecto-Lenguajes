@@ -20,24 +20,40 @@ class ProductoraController extends Controller
         }
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $url = 'http://localhost:8080/producer/create';
-        $response = Http::post(
-            $url,
-            [
-                'nombre' => 'BigHiglLabels',
-                'anio_inicio' =>  '2021',
-                'pais_origen' =>  'Korea'
+        $productora = [
+            'nombre' => $request->post('nombre'),
+            'anio_inicio' =>  $request->post('anio_inicio'),
+            'pais_origen' =>  $request->post('pais_origen')
+        ];
 
-            ]
-        );
+        $response = Http::post('http://localhost:8080/producer/create', $productora);
         if ($response->getStatusCode() === 201) {
-            return view('productora');
+            return $this->index();
         } else {
-            printf('Hubo un error al guardar al producer');
+            printf($response);
         }
     }
+
+    public function update(Request $request)
+    {
+        $productora = [
+            'codigo_productora' => $request->input('codigo'),
+            'nombre' => $request->input('nombre'),
+            'anio_inicio' =>  $request->input('anio_inicio'),
+            'pais_origen' =>  $request->input('pais_origen')
+        ];
+
+        $url = 'http://localhost:8080/producer/edit';
+        $response = Http::put($url, $productora);
+        if ($response->getStatusCode() === 201) {
+            return $this->index();
+        } else {
+            printf($response);
+        }
+    }
+
 
     public function delete($id)
     {

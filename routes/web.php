@@ -25,21 +25,11 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-/* Route::get('/artista', function () {
-    return view('artista');
-});
-
-Route::get('/cancion', function () {
-    return view('cancion');
-});
-
-Route::get('/genero', function () {
-    return view('genero');
-}); */
-
 //Rutas Productora
 Route::get('/producer', [ProductoraController::class, 'index'])->name('producer.index');
 Route::get('/producer/save', [ProductoraController::class, 'create'])->name('producer.save');
+Route::post('/producer/create', [ProductoraController::class, 'create'])->name('producer.create');
+Route::put('/producer/update', [ProductoraController::class, 'update'])->name('producer.update');
 Route::get('/producer/delete/{id}', [ProductoraController::class, 'delete'])->name('producer.delete');
 Route::get('/producer/find/{id}', [ProductoraController::class, 'getByID'])->name('producer.find');
 Route::get('/producer/edit/{id}', [ProductoraController::class, 'edit'])->name('producer.edit');

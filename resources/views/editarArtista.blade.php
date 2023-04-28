@@ -38,6 +38,7 @@
             <label for="">Codigo de Productora</label>
             <select name="productora" id="">
                 @foreach ($productora as $item)
+                <option value="">Select</option>
                 <option value="{{ $item['codigo_productora'] }}"> {{ $item['nombre'] }} </option>
                 @endforeach
             </select>

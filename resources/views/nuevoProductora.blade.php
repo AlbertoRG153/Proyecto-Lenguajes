@@ -18,23 +18,18 @@
         <a href="{{ route('producer.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{ route('producer.create') }}" method="POST">
         @csrf
         <div class="form ms-auto me-auto">
 
             <label for="">Nombre</label>
-            <input type="text" name="" id="" placeholder="Nombre">
+            <input type="text" name="nombre" id="" placeholder="Nombre">
 
             <label for="">Año de Inicio</label>
-            <input type="text" name="" id="" placeholder="Año de Inicio">
+            <input type="text" name="anio_inicio" id="" placeholder="Año de Inicio">
 
             <label for="">País de Origen</label>
-            <input type="text" name="" id="" placeholder="País de Origen">
-
-            <label for="">Codigo de Artista</label>
-            <select name="artista" id="">                
-                <option value="">1</option>                 
-            </select>
+            <input type="text" name="pais_origen" id="" placeholder="País de Origen">
 
             <button class="btn btn-primary">Guardar</button>
         </div>

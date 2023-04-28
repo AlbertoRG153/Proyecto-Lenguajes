@@ -18,27 +18,21 @@
         <a href="{{ route('producer.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{ route('producer.update') }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form ms-auto me-auto">
             <label for="">Codigo de Productora</label>
-            <input type="number" name="" id="" placeholder="Codigo de Productora" readonly value="">
+            <input type="number" name="codigo" id="" placeholder="Codigo de Productora" readonly value="{{ $productora['codigo_productora'] }}">
 
             <label for="">Nombre</label>
-            <input type="text" name="" id="" placeholder="Nombre" value="">
+            <input type="text" name="nombre" id="" placeholder="Nombre" value="{{ $productora['nombre'] }}">
 
             <label for="">Año de Inicio</label>
-            <input type="text" name="" id="" placeholder="Año de Inicio" value="">
+            <input type="text" name="anio_inicio" id="" placeholder="Año de Inicio" value="{{ $productora['anio_inicio'] }}">
 
             <label for="">País de Origen</label>
-            <input type="text" name="" id="" placeholder="País de Origen" value="">
-
-            <label for="">Codigo de Artista</label>
-            <select name="artista" id="">                
-                <option value="">1</option>                 
-            </select>
-
+            <input type="text" name="pais_origen" id="" placeholder="País de Origen" value="{{ $productora['pais_origen'] }}">
 
             <button class="btn btn-primary">Guardar</button>
         </div>
