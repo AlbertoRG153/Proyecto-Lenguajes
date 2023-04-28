@@ -21,8 +21,6 @@
     <form action="{{ route('artist.save') }}" method="POST">
         @csrf
         <div class="form ms-auto me-auto">
-            <!--<label for="">Codigo de Artista</label>
-            <input type="number" name="codigo" id="" placeholder="Codigo de Artista">-->
 
             <label for="">Nombre</label>
             <input type="text" name="nombre" id="" placeholder="Nombre">

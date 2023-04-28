@@ -34,6 +34,12 @@
             <label for="">País de Origen</label>
             <input type="text" name="" id="" placeholder="País de Origen" value="">
 
+            <label for="">Codigo de Artista</label>
+            <select name="artista" id="">                
+                <option value="">1</option>                 
+            </select>
+
+
             <button class="btn btn-primary">Guardar</button>
         </div>
     </form>

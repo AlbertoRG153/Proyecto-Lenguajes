@@ -137,6 +137,10 @@ body {
     margin-bottom: 30px;
 }
 
+.check {
+    border: solid 2px #4104c3 !important;
+}
+
 .form select {
     margin-bottom: 30px;
 }

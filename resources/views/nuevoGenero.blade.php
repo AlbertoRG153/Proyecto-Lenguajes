@@ -20,9 +20,7 @@
 
     <form action="" method="POST">
         @csrf
-        <div class="form ms-auto me-auto">
-            <label for="">Codigo de Cancion</label>
-            <input type="number" name="" id="" placeholder="Codigo de Cancion">
+        <div class="form ms-auto me-auto">            
 
             <label for="">Decripción</label>
             <input type="text" name="" id="" placeholder="Decripción">
