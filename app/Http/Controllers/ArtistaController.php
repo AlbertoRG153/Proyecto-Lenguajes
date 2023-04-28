@@ -32,12 +32,27 @@ class ArtistaController extends Controller{
         }
     }
 
+
+    private function prueba(){
+
+        $url2 = 'http://localhost:8080/artist/listar';
+        $response2 = Http::get($url2);
+        if ($response2->ok()) {
+            $response3 = $response2->json();
+            error_log("correcto");
+        } else{
+            printf('Hubo un error al encontrar los artistas');
+            error_log("un error");
+        }
+
+    }
+
+
+
     public function save(Request $request)
     {
-
-
-
         $url = 'http://localhost:8080/artist/create';
+
         $response = Http::post($url,
                             [
                                 'nombre' => $request->nombre,
@@ -46,12 +61,25 @@ class ArtistaController extends Controller{
                             ]
     );
         if ($response->getStatusCode() === 201) {
+            $url2 = 'http://localhost:8080/artist/listar';
+            $response2 = Http::get($url2);
+            if ($response2->ok()) {
+                $response3 = $response2->json();
+                $ultimoElemento = end($response3);
+                $this->prodToArt($ultimoElemento['codigo'], $request->productora);
+                error_log("correcto");
+            } else{
+                printf('Hubo un error al encontrar los artistas');
+                error_log("Hubo un error al encontrar los artistas");
+            }
             return $this->index();
         } else{
             printf('Hubo un error al guardar al artista');
         }  
 
     }
+
+
 
     public function edit()
     {
