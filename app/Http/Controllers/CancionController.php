@@ -43,7 +43,18 @@ class CancionController extends Controller
         $url = 'http://localhost:8080/song/find/' . $id;
         $response = Http::get($url);
         $detalle = $response->json();
-        return view('editarCancion', compact('detalle'));
+
+        $url2 = 'http://localhost:8080/artist/listar';
+        $response2 = Http::get($url2);
+
+        $url3 = 'http://localhost:8080/gender/listar';
+        $response3 = Http::get($url3);
+
+        if ($response2->ok() && $response3->ok()) {
+            $artista = $response2->json();
+            $genero = $response3->json();
+        return view('editarCancion', compact('detalle','artista','genero'));
+        }
     }
 
     public function update(Request $request)
