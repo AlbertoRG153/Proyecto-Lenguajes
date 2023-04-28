@@ -40,8 +40,10 @@ class CancionController extends Controller
 
     public function edit($id)
     {
-        $response = $this->getByID($id);
-        return view('editarCancion', compact('response'));
+        $url = 'http://localhost:8080/song/find/' . $id;
+        $response = Http::get($url);
+        $detalle = $response->json();
+        return view('editarCancion', compact('detalle'));
     }
 
     public function update(Request $request)

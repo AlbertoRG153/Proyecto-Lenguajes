@@ -39,10 +39,9 @@
         </table>
 
         {{-- Tabla de Artistas --}}
-        <h3 class="font-principal">Artistas</h3>
+        <h3 class="font-principal">Artista</h3>
         <table class="table table-dark table-hover ">
             <thead>
-               
                 <tr>
                     <th scope="col">Codigo</th>
                     <th scope="col">Nombre</th>

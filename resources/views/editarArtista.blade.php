@@ -42,7 +42,7 @@
                 <option value="{{ $item['codigo_productora'] }}"> {{ $item['nombre'] }} </option>
                 @endforeach
             </select>
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary" onclick="return confirmEdit()">Guardar</button>
         </div>
     </form>
 

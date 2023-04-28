@@ -26,16 +26,16 @@
         @method('PUT')
         <div class="form ms-auto me-auto">
             <label for="">Codigo de Cancion</label>
-            <input type="number" name="codigo" id="" placeholder="Codigo de Cancion" readonly value="{{ $response['codigo'] }}">
+            <input type="number" name="codigo" id="" placeholder="Codigo de Cancion" readonly value="{{ $detalle['codigo'] }}">
 
             <label for="">Titulo</label>
-            <input type="text" name="titulo" id="" placeholder="Titulo" value="{{ $response['titulo'] }}">
+            <input type="text" name="titulo" id="" placeholder="Titulo" value="{{ $detalle['titulo'] }}">
 
             <label for="">Album</label>
-            <input type="text" name="album" id="" placeholder="Album" value="{{ $response['album'] }}">
+            <input type="text" name="album" id="" placeholder="Album" value="{{ $detalle['album'] }}">
 
             <label for="">Duración</label>
-            <input type="text" name="duracion" id="" placeholder="Duración" maxlength="8" value="{{ $response['duracion'] }}">
+            <input type="text" name="duracion" id="" placeholder="Duración" maxlength="8" value="{{ $detalle['duracion'] }}">
 
             <label for="">Selccione Artistas</label>
             <div class="dropdown">
@@ -87,7 +87,7 @@
                 </ul>
                 </div>
 
-            <button class="btn btn-primary mt-5"  onclick="return confirmEdit()">Editar {{ $response['titulo'] }}</button>
+            <button class="btn btn-primary mt-5"  onclick="return confirmEdit()">Editar {{ $detalle['titulo'] }}</button>
         </div>
     </form>
 

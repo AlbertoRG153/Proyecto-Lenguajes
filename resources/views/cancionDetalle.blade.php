@@ -14,7 +14,7 @@
 <body>
     <nav class="nav centrar">
         <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
-        <h1>Cancion</h1>
+        <h1>Detalle Cancion</h1>
         <a href="{{ route('song.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
@@ -60,7 +60,7 @@
                     <td> {{$item['anio_debut']}}</td>  
                     @endforeach                               
                 </tr>                           
-            </tbody> --}}
+            </tbody>
         </table>
 
         {{-- Tabla de Generos --}}
