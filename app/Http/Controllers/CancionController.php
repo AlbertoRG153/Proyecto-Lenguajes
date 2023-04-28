@@ -95,7 +95,6 @@ class CancionController extends Controller
         $url = 'http://localhost:8080/song/' . $song . '/assign/' . $art;
         $response = Http::put($url);
         if ($response->ok()) {
-            echo '<script>alert("Se ha agregado el artista a la cancion");</script>';
         } else {
             $error = json_decode($response->getBody(), true)['error'];
             printf('Hubo un error al asignar la productora: %s', $error);
@@ -107,7 +106,6 @@ class CancionController extends Controller
         $url = 'http://localhost:8080/song/' . $song . '/addGender/' . $gend;
         $response = Http::put($url);
         if ($response->ok()) {
-            echo '<script>alert("Se ha agregado el genero a la cancion");</script>';
         } else {
             $error = json_decode($response->getBody(), true)['error'];
             printf('Hubo un error al asignar la productora: %s', $error);
@@ -123,8 +121,48 @@ class CancionController extends Controller
             'duracion' => $request->post('duracion')
         ];
 
+        $artistasSelec = $request->post('artistas');
+
+        $generosSelec = $request->post('generos');
+        $pe = implode(",", $generosSelec);
+        error_log($pe);
+
         $response = Http::post('http://localhost:8080/song/create', $cancion);
         if ($response->getStatusCode() === 201) {
+
+
+            
+            $url2 = 'http://localhost:8080/song/listar';
+            $response2 = Http::get($url2);
+            try {
+                if ($response2->ok()) {
+                    $response3 = $response2->json();
+                    $ultimoElemento = end($response3);
+                    foreach ($artistasSelec as $item) {
+                        $this->artToSong($item, $ultimoElemento['codigo']);
+                    };
+                    error_log("correcto");
+                }
+            } catch (\Exception $e) {
+                error_log('Excepción capturada: ' . $e->getMessage());
+            }
+
+            $url3 = 'http://localhost:8080/song/listar';
+            $response4 = Http::get($url3);
+            if ($response2->ok()) {
+                $response5 = $response4->json();
+                $ultimoElemento = end($response5);
+                foreach ($generosSelec as $item){
+                $this->genderToSong($item, $ultimoElemento['codigo']);
+                };
+                error_log("correcto");
+            } else {
+                printf('Hubo un error al encontrar los elementos');
+                error_log("Hubo un error al encontrar los elementos");
+            }
+
+
+
             return $this->index();
         } else {
             printf($response);
