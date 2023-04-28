@@ -69,8 +69,10 @@ class CancionController extends Controller
         $response = Http::get($url);
 
         if ($response->ok()) {
-            $detalle=$response->json();
-            return view('cancionDetalle', compact('detalle'));
+            $detalle = $response->json();
+            $artista = $detalle['artistas'];
+            $genero = $detalle['generos'];
+            return view('cancionDetalle', compact('detalle', 'artista', 'genero'));
         } else {
             printf('No se encontro la cancion');
         }

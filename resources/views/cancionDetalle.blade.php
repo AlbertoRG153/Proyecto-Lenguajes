@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cancion</title>
+    <title>Detalle Cancion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -19,6 +19,7 @@
     </nav>
 
     <div class="content">
+        
         <table class="table table-dark table-hover ">
             <thead>
                 <tr>
@@ -26,9 +27,6 @@
                     <th scope="col">Titulo</th>
                     <th scope="col">Álbum</th>
                     <th scope="col">Duración</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -36,10 +34,7 @@
                     <th scope="row">{{$detalle['codigo']}}</th>
                     <td>{{$detalle['titulo'] }}</td>
                     <td>{{$detalle['album'] }}</td>
-                    <td>{{$detalle['duracion'] }}</td>
-                    <td><a href="{{ route('song.edit', $detalle['codigo']) }}">Editar</a></td>
-                    <td><a href="{{ route('song.delete', $detalle['codigo']) }}" onclick="return confirmDelete()">Eliminar</a></td>
-                    
+                    <td>{{$detalle['duracion'] }}</td                   
                 </tr>
                 
             </tbody>
@@ -49,23 +44,21 @@
         <h3 class="font-principal">Artistas</h3>
         <table class="table table-dark table-hover ">
             <thead>
-               
                 <tr>
                     <th scope="col">Codigo</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Año Debut</th>                                
-                </tr>
-               
+                </tr>               
             </thead>
             <tbody>                            
                 <tr>
-                    @foreach($detalle['artist'] as $item) 
+                    @foreach($artista as $item) 
                     <th scope="row"> {{$item['codigo']}}</th>
                     <td> {{$item['nombre']}}</td>
                     <td> {{$item['apellido']}}</td>
                     <td> {{$item['anio_debut']}}</td>  
-                     @endforeach                               
+                    @endforeach                               
                 </tr>                           
             </tbody>
         </table>
@@ -80,14 +73,12 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($genero as $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>                                
+                    <th scope="row">{{$item['codigo']}}/th>
+                    <td>{{$item['descripcion']}}</td>                                
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>                                
-                </tr>
+                @endforeach
             </tbody>
         </table>
 
