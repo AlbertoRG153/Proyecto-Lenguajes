@@ -19,30 +19,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/producer")
 public class ProductoraController {
+
     @Autowired
     private ProductoraServicesIMPL pimpl;
-     
+
     @GetMapping("/listar")
-    public ResponseEntity<?> list(){
-        List<Productora> listaProd=this.pimpl.getProd();
+    public ResponseEntity<?> list() {
+        List<Productora> listaProd = this.pimpl.getProd();
         return ResponseEntity.ok(listaProd);
     }
-    
+
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody Productora prod){
-        Productora createdProd=this.pimpl.saveProd(prod);
+    public ResponseEntity<?> create(@RequestBody Productora prod) {
+        Productora createdProd = this.pimpl.saveProd(prod);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProd);
     }
-    
+
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable int id){
+    public ResponseEntity<?> delete(@PathVariable int id) {
         this.pimpl.deleteProd(id);
         return ResponseEntity.ok().build();
     }
-    
+
     @GetMapping("/find/{id}")
-    public ResponseEntity<?> find(@PathVariable int id){
+    public ResponseEntity<?> find(@PathVariable int id) {
         return ResponseEntity.ok(this.pimpl.findProd(id));
     }
-    
+
+    @PutMapping("/edit")
+    public ResponseEntity<?> edit(@RequestBody Productora prod) {
+        Productora editProd = this.pimpl.editProd(prod);
+        return ResponseEntity.status(HttpStatus.CREATED).body(editProd);
+    }
+
 }
