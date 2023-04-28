@@ -35,10 +35,10 @@
             <input type="text" name="anio_debut" id="" placeholder="Año Debut" value="{{$artista['anio_debut']}}">
 
             
-            <label for="">Codigo de Productora</label>
+            <label for="">Productora</label>            
             <select name="productora" id="">
-                @foreach ($productora as $item)
                 <option value="">Select</option>
+                @foreach ($productora as $item)                
                 <option value="{{ $item['codigo_productora'] }}"> {{ $item['nombre'] }} </option>
                 @endforeach
             </select>

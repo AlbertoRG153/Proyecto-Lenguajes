@@ -74,8 +74,9 @@ class ProductoraController extends Controller
         $response = Http::get($url);
 
         if ($response->ok()) {
-            $proArt=$response->json();
-            return view('proArt', compact('proArt'));
+            $proArt = $response->json();
+            $artista = $proArt['artist'];
+            return view('proArt', compact('proArt', 'artista'));
         } else {
             printf('No se encontro el producer');
         }
