@@ -60,12 +60,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 font-principal" id="verModalLabel">Detalle Cancion (Codigo)</h1>
+                    <h1 class="modal-title fs-5 font-principal" id="verModalLabel">Detalle Artista (Codigo)</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
-                    {{-- Tabla de Artistas --}}
+                    {{-- Tabla de Canciones --}}
                     <h3 class="font-principal">Canciones</h3>
                     <table class="table table-dark table-hover ">
                         <thead>
@@ -86,7 +86,7 @@
                         </tbody>
                     </table>
 
-                    {{-- Tabla de Generos --}}
+                    {{-- Tabla de Productora --}}
                     <h3 class="font-principal">Productora</h3>
                     <table class="table table-dark table-hover ">
                         <thead>
