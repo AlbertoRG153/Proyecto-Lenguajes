@@ -34,7 +34,7 @@
                     <th scope="row">{{$detalle['codigo']}}</th>
                     <td>{{$detalle['titulo'] }}</td>
                     <td>{{$detalle['album'] }}</td>
-                    <td>{{$detalle['duracion'] }}</td                   
+                    <td>{{$detalle['duracion'] }}</td>                   
                 </tr>
                 
             </tbody>
@@ -51,15 +51,15 @@
                     <th scope="col">Año Debut</th>                                
                 </tr>               
             </thead>
-            <tbody>                            
-                <tr>
-                    @foreach($artista as $item) 
+            <tbody>            
+                @foreach($artista as $item)                 
+                <tr>                    
                     <th scope="row"> {{$item['codigo']}}</th>
                     <td> {{$item['nombre']}}</td>
                     <td> {{$item['apellido']}}</td>
-                    <td> {{$item['anio_debut']}}</td>  
-                    @endforeach                               
-                </tr>                           
+                    <td> {{$item['anio_debut']}}</td>                                                  
+                </tr>  
+                @endforeach                          
             </tbody>
         </table>
 
@@ -75,7 +75,7 @@
             <tbody>
                 @foreach($genero as $item)
                 <tr>
-                    <th scope="row">{{$item['codigo']}}/th>
+                    <th scope="row">{{$item['codigo']}}</th>
                     <td>{{$item['descripcion']}}</td>                                
                 </tr>
                 @endforeach
