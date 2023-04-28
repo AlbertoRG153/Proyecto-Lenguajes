@@ -34,7 +34,7 @@
             <label for="">País de Origen</label>
             <input type="text" name="pais_origen" id="" placeholder="País de Origen" value="{{ $productora['pais_origen'] }}">
 
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary" onclick="return confirmEdit()">Guardar</button>
         </div>
     </form>
 
