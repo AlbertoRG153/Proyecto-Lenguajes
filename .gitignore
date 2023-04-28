@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+target/classes/hn/lenguajes/industria/Entity/Artista.class
+target/classes/hn/lenguajes/industria/Entity/Cancion.class
+target/classes/hn/lenguajes/industria/Entity/Genero.class
+target/classes/hn/lenguajes/industria/Entity/Productora.class
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
