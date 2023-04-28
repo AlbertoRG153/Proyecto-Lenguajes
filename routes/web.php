@@ -47,6 +47,7 @@ Route::get('/producer/guardar', [ProductoraController::class, 'save'])->name('pr
 Route::get('/artist', [ArtistaController::class, 'index'])->name('artist.index');
 Route::get('/artist/create', [ArtistaController::class, 'create'])->name('artist.create');
 Route::get('/artist/edit/{id}', [ArtistaController::class, 'edit'])->name('artist.edit');
+Route::put('/artist/update', [ArtistaController::class, 'update'])->name('artist.update');
 Route::post('/artist/save', [ArtistaController::class, 'save'])->name('artist.save');
 Route::get('/artist/delete/{id}', [ArtistaController::class, 'delete'])->name('artist.delete');
 Route::get('/artist/find/{id}', [ArtistaController::class, 'getByID'])->name('artist.find');

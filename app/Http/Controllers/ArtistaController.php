@@ -81,12 +81,52 @@ class ArtistaController extends Controller{
 
 
 
-    public function edit()
+    public function edit($id)
     {
+        $url = 'http://localhost:8080/artist/find/'.$id;
+        $response = Http::get($url);
+        $artista = $response->json();
 
-        return view('editarArtista');
+        $url2 = 'http://localhost:8080/producer/listar';
+        $response2 = Http::get($url2);
+        $productora = $response2->json();
+
+        return view('editarArtista',compact('artista','productora'));
 
     }
+
+
+    public function update(Request $request)
+    {
+        $url = 'http://localhost:8080/artist/edit';
+
+        $response = Http::put($url,
+                            [
+                                'codigo' => $request->codigo,
+                                'nombre' => $request->nombre,
+                                'apellido' =>  $request->apellido,
+                                'anio_debut' =>  $request->anio_debut
+                            ]
+    );
+        if ($response->getStatusCode() === 201) {
+            $url2 = 'http://localhost:8080/artist/listar';
+            $response2 = Http::get($url2);
+            if ($response2->ok()) {
+                $response3 = $response2->json();
+                $ultimoElemento = end($response3);
+                $this->prodToArt($ultimoElemento['codigo'], $request->productora);
+                error_log("correcto");
+            } else{
+                printf('Hubo un error al encontrar los artistas');
+                error_log("Hubo un error al encontrar los artistas");
+            }
+            return $this->index();
+        } else{
+            printf('Hubo un error al guardar al artista');
+        }  
+
+    }
+
 
     public function delete($id)
     {
@@ -119,7 +159,6 @@ class ArtistaController extends Controller{
         $url = 'http://localhost:8080/artist/' . $art . '/producer/' . $prod;
         $response = Http::put($url);
         if ($response->ok()) {
-            print_r($response->json());
         } else{
             $error = json_decode($response->getBody(), true)['error'];
             printf('Hubo un error al asignar la productora: %s', $error);
