@@ -13,9 +13,9 @@
 
 <body>
     <nav class="nav centrar">
-        <img src="{{ asset('/img/disco-de-vinilo.png') }}" alt="">
-        <h1>Cancion</h1>
-        <a href="{{ route('song.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
+        <img src="{{ asset('/img/estudio-de-grabacion.png') }}" alt="">
+        <h1>Detalle Productora</h1>
+        <a href="{{ route('producer.index') }}"><button type="button" class="btn btn-danger">Regresar</button></a>
     </nav>
 
     <div class="content">
@@ -25,9 +25,7 @@
                     <th scope="col">codigoProductora</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Año Inicio</th>
-                    <th scope="col">Pais Origen</th>
-                    
-                    
+                    <th scope="col">Pais Origen</th>              
                 </tr>
             </thead>
             <tbody>
@@ -35,11 +33,8 @@
                     <th scope="row">{{$proArt['codigo_productora']}}</th>
                     <td>{{$proArt['nombre'] }}</td>
                     <td>{{$proArt['anio_inicio'] }}</td>
-                    <td>{{$proArt['pais_origen'] }}</td>
-            
-                    
+                    <td>{{$proArt['pais_origen'] }}</td>          
                 </tr>
-                
             </tbody>
         </table>
 
@@ -53,17 +48,14 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Año Debut</th>                                
-                </tr>
-               
+                </tr>  
             </thead>
             <tbody>                            
                 <tr>
-                    {{-- @foreach($detalle['artist'] as $item) 
-                    <th scope="row"> {{$item['codigo']}}</th>
-                    <td> {{$item['nombre']}}</td>
-                    <td> {{$item['apellido']}}</td>
-                    <td> {{$item['anio_debut']}}</td>  
-                     @endforeach                                --}}
+                    <th scope="row"> {{$artista['codigo']}}</th>
+                    <td> {{$artista['nombre']}}</td>
+                    <td> {{$artista['apellido']}}</td>
+                    <td> {{$artista['anio_debut']}}</td>                             
                 </tr>                           
             </tbody>
         </table>

@@ -31,7 +31,7 @@
             <label for="">Año Debut</label>
             <input type="text" name="anio_debut" id="" placeholder="Año Debut">
 
-            <label for="">Codigo de Productora</label>
+            <label for="">Productora</label>
 
             <select name="productora" id="">
                 <option value="">Select</option>
